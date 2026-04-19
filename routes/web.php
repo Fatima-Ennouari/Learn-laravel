@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\ResponseController;
 use Illuminate\Http\Request;
+
 
 // Route::get('/', function () {
 //     return view('home');
@@ -92,3 +94,12 @@ use Illuminate\Http\Request;
 //         return view('admin.dashboard');
 //     })->name('admin.dashboard');
 // });
+Route::get('/response/text', [ResponseController::class, 'textResponse']);
+Route::get('/response/view', [ResponseController::class, 'viewResponse']);
+Route::get('/response/array', [ResponseController::class, 'arrayResponse']);
+Route::get('/response/json', [ResponseController::class, 'jsonResponse']);
+Route::get('/response/json-header', [ResponseController::class, 'jsonWithHeader']);
+Route::get('/response/redirect-route', [ResponseController::class, 'redirectToRoute']);
+Route::get('/response/redirect-method', [ResponseController::class, 'redirectToMethod']);
+Route::get('/response/redirect-external', [ResponseController::class, 'redirectExternal']);
+
