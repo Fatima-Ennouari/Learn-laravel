@@ -48,5 +48,48 @@ class UserController extends Controller {
         $this->saveUsers($users);
         return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
-    
+//EDIT
+    public function edit($id)
+    {
+        $users = $this->getUsers();
+        $user = collect($users)->firstWhere('id', $id);
+
+        return view('users.edit', compact('user'));
+    }
+
+//UPDATE
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'nom' => 'required',
+            'email' => 'required|email',
+            'age' => 'required|numeric|min:1'
+        ]);
+
+        $users = $this->getUsers();
+
+        foreach ($users as &$user) {
+            if ($user['id'] == $id) {
+                $user['nom'] = $request->nom;
+                $user['email'] = $request->email;
+                $user['age'] = $request->age;
+            }
+        }
+
+        $this->saveUsers($users);
+
+        return redirect()->route('users.index')->with('success', 'User modifié');
+    }
+
+// DELETE
+    public function destroy($id)
+    {
+        $users = $this->getUsers();
+
+        $users = array_filter($users, fn($u) => $u['id'] != $id);
+
+        $this->saveUsers(array_values($users));
+
+        return redirect()->route('users.index')->with('success', 'User supprimé');
+    }
 }
