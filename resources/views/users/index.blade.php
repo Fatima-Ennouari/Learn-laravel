@@ -1,4 +1,4 @@
-<h2>Liste des utilisateurs</h2>
+<!-- <h2>Liste des utilisateurs</h2>
 <a href="{{route('users.create')}}">Ajouter</a>
 @if(session('success'))
 <p style="color: green;">{{ session('success') }}</p>
@@ -12,19 +12,19 @@
         <th>Actions</th>
     </tr>
     @foreach($users as $user)
-    <tr>
-        <td>{{$user['id']}}</td>
-        <td>{{$user['nom']}}</td>
-        <td>{{$user['email']}}</td>
-        <td>{{$user['age']}}</td>
-        <td>
-            <a href="{{ route('users.edit', $user['id']) }}">Edit</a>
-            <form action="{{ route('user.destroy' , $user['id'])}}" method="POST">
+        <tr>
+            <td>{{$user['id']}}</td>
+            <td>{{$user['nom']}}</td>
+            <td>{{$user['email']}}</td>
+            <td>{{$user['age']}}</td>
+            <td>
+                <a href="{{ route('users.edit', $user['id']) }}">Edit</a>
+                <form action="{{ route('users.destroy' , $user['id'])}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit">Delete</button>
-            </form>
-        </td>
-    </tr>
+                <button type="submit"  onclick="return confirm('Are you sure?')">Delete</button>
+                </form>
+            </td>
+        </tr>
     @endforeach
-</table>
+</table> -->

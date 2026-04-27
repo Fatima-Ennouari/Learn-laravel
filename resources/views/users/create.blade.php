@@ -1,4 +1,4 @@
-<h2>Ajouter un utilisateur</h2>
+<!-- <h2>Ajouter un utilisateur</h2>
 <form action="{{route('users.store')}}" method="POST">
     @csrf
     <div>
@@ -14,4 +14,4 @@
         <input type="number" name="age" id="age" required>
     </div>
     <button type="submit">Ajouter</button>
-</form>
+</form> -->

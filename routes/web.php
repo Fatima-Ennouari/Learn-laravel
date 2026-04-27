@@ -104,4 +104,5 @@ use Illuminate\Http\Request;
 // Route::get('/response/redirect-method', [ResponseController::class, 'redirectToMethod']);
 // Route::get('/response/redirect-external', [ResponseController::class, 'redirectExternal']);
 
-Route::resource('users', UserController::class);
+// Route::resource('users', UserController::class);
+Route::resource('products', ProductController::class);
